@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlightPath Navigator - Ops Update</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f7f9fc; }
+    h1 { color: #003366; }
+    .selector { margin-bottom: 20px; }
+    .card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .semester-title { font-weight: bold; color: #005fa3; margin-top: 10px; }
+    .course { display: flex; align-items: center; margin: 5px 0; }
+    .course input { margin-right: 10px; }
+    .progress-bar { background: #e0e0e0; border-radius: 10px; overflow: hidden; margin: 15px 0; }
+    .progress { background: #005fa3; height: 20px; color: white; text-align: center; }
+    button { padding: 8px 12px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>FlightPath Navigator</h1>
+  <div class="selector">
+    <label for="specialization">Choose your specialization:</label>
+    <select id="specialization">
+      <option value="flight">Professional Flight</option>
+      <option value="ops">Operations</option>
+      <option value="management">Management</option>
+    </select>
+  </div>
+
+  <div class="progress-bar"><div id="progress" class="progress" style="width: 0%;">0%</div></div>
+
+  <button onclick="showChecklist()">View Checklist</button>
+  <button onclick="clearProgress()" style="margin-left:10px;">Clear Progress</button>
+  <div id="checklist" style="margin-top:20px; display:none;"></div>
+
+  <div id="roadmap"></div>
+
+  <script>
+    const roadmapData = {
+      ops: {
+        "Courses": [
+          "AVIA 1 - Introduction to the Aviation Industry",
+          "AVIA 2 - Private Pilot Ground",
+          "AVIA 31 - Aircraft Theory and Design",
+          "AVIA 42 - Aircraft Systems",
+          "AVIA 43 - Propulsion Theory",
+          "AVIA 68 - Avionics and Airborne Communication",
+          "AVIA 73 - Air Traffic Control",
+          "AVIA 91 - Aircraft Turbine Engines",
+          "AVIA 110 - Aviation Weather",
+          "AVIA 178 - Airport Planning and Management",
+          "AVIA 193 - Aerodynamics",
+          "AVIA 194 - Advanced Aircraft Systems",
+          "Major Electives 7 unit(s)",
+          "AVIA 177 - General Aviation Operations and Management",
+          "AVIA 179 - Advanced Airport Planning and Management",
+          "AVIA 195 - Internship with the Aviation Industry",
+          "AVIA 112 - Commercial Pilot Ground",
+          "AVIA 144 - Certified Flight Instructor",
+          "AVIA 116 - Aircraft Multi-Engine",
+          "Complete one: AVIA 177 / AVIA 179 / AVIA 195"
+        ]
+      },
+      flight: {
+        "Year 1 - Semester 1": ["AVIA 1", "MATH 71", "ENGL 1A", "Area A3"],
+        "Year 1 - Semester 2": ["AVIA 2", "PHYS 2A", "COMM 20", "GE Course"]
+      },
+      management: {
+        "Year 1 - Semester 1": ["AVIA 1", "BUS 20", "MATH 71", "Area A3"],
+        "Year 1 - Semester 2": ["AVIA 10", "BUS 160", "COMM 20", "GE Course"]
+      }
+    };
+
+    const roadmapContainer = document.getElementById("roadmap");
+    const select = document.getElementById("specialization");
+    const progressBar = document.getElementById("progress");
+
+    function loadRoadmap(spec) {
+      roadmapContainer.innerHTML = "";
+      let courses = roadmapData[spec];
+      let totalCourses = 0;
+
+      for (let category in courses) {
+        const card = document.createElement("div");
+        card.className = "card";
+        const title = document.createElement("div");
+        title.className = "semester-title";
+        title.textContent = category;
+        card.appendChild(title);
+
+        courses[category].forEach(course => {
+          totalCourses++;
+          const div = document.createElement("div");
+          div.className = "course";
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.id = course;
+          checkbox.checked = localStorage.getItem(spec + "_" + course) === "true";
+
+          checkbox.addEventListener("change", () => {
+            localStorage.setItem(spec + "_" + course, checkbox.checked);
+            updateProgress(totalCourses, spec);
+          });
+
+          const label = document.createElement("label");
+          label.htmlFor = course;
+          label.textContent = course;
+
+          div.appendChild(checkbox);
+          div.appendChild(label);
+          card.appendChild(div);
+        });
+
+        roadmapContainer.appendChild(card);
+      }
+      updateProgress(totalCourses, spec);
+    }
+
+    function updateProgress(total, spec) {
+      let count = 0;
+      for (let key in localStorage) {
+        if (key.startsWith(spec + "_") && localStorage.getItem(key) === "true") {
+          count++;
+        }
+      }
+      const percent = Math.round((count / total) * 100);
+      progressBar.style.width = percent + "%";
+      progressBar.textContent = percent + "%";
+    }
+
+    function showChecklist() {
+      const spec = document.getElementById("specialization").value;
+      const checklistDiv = document.getElementById("checklist");
+      checklistDiv.style.display = "block";
+      checklistDiv.innerHTML = "<h3>Completed Courses:</h3>";
+
+      let anyChecked = false;
+      for (let key in localStorage) {
+        if (key.startsWith(spec + "_") && localStorage.getItem(key) === "true") {
+          const course = key.replace(spec + "_", "");
+          checklistDiv.innerHTML += `<div>✓ ${course}</div>`;
+          anyChecked = true;
+        }
+      }
+
+      if (!anyChecked) {
+        checklistDiv.innerHTML += "<div>No courses completed yet.</div>";
+      }
+    }
+
+    function clearProgress() {
+      const spec = document.getElementById("specialization").value;
+      for (let key in localStorage) {
+        if (key.startsWith(spec + "_")) {
+          localStorage.removeItem(key);
+        }
+      }
+      loadRoadmap(spec);
+      document.getElementById("checklist").style.display = "none";
+    }
+
+    select.addEventListener("change", () => loadRoadmap(select.value));
+    window.onload = () => loadRoadmap(select.value);
+  </script>
+</body>
+</html>
