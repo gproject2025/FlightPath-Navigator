@@ -1,298 +1,898 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Academic Path to Success</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+
     body {
+
       font-family: 'Segoe UI', sans-serif;
+
       background-color: #f6f9ff;
+
       margin: 0;
+
       padding: 20px;
+
       color: #1a2e66;
+
     }
+
     h1 {
+
       font-size: 35px;
+
       font-weight: bold;
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
+
     }
+
     h1::before {
+
       content: '✈️';
+
     }
+
     .card {
+
       background: white;
+
       padding: 20px;
+
       margin-bottom: 15px;
+
       border-radius: 20px;
+
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
     }
+
     .semester-title {
+
       font-size: 24px;
+
       font-weight: bold;
+
       color: #005fa3;
+
       margin-bottom: 10px;
+
     }
+
     .course-list {
+
       margin-left: 20px;
+
     }
+
     .course-list li {
+
       list-style-type: disc;
+
       margin-bottom: 5px;
+
     }
+
     .course-list li ul li {
+
       list-style-type: square;
+
     }
+
     .blue-underline {
+
       color: blue;
+
       text-decoration: underline;
+
     }
+
   </style>
+
 </head>
+
 <body>
+
   <h1>Academic Path to Success</h1>
 
+
+
   <!-- Core GE -->
+
   <div class="card">
+
     <div class="semester-title">Core Lower Division General Education (24 unit(s))</div>
+
     <ul class="course-list">
+
       <li>
+
         <span class="blue-underline">GE Area A English Language Communication and Critical Thinking</span> 9 unit(s)
+
         <ul>
+
           <li>1. Oral Communication
+
             <ul>
-              <li><span class="blue-underline">COMM 20 - Public Speaking</span> 3 unit(s)</li>
+
+                <li>
+                    <label>
+                      <input type="checkbox" name="courses" value="COMM 20">
+                      <span class="blue-underline">COMM 20 - Public Speaking</span> 3 unit(s)
+                    </label>
+                  </li>
+                  
+
             </ul>
+
           </li>
+
           <li>2. Written Communication I (Complete one below)
+
             <ul>
-              <li><span class="blue-underline">ENGL 1A - First Year Writing</span> 3 unit(s)</li>
-              <li><span class="blue-underline">ENGL 1AS - First-Year Writing: Stretch English II</span> 3 unit(s)</li>
+
+                <li>
+                    <label>
+                      <input type="checkbox" id="engl1a" onclick="exclusiveCheck(this, 'engl1as')">
+                      <span class="blue-underline">ENGL 1A - First Year Writing</span> 3 unit(s)
+                    </label>
+                  </li>
+                  
+                  <li>
+                    <label>
+                      <input type="checkbox" id="engl1as" onclick="exclusiveCheck(this, 'engl1a')">
+                      <span class="blue-underline">ENGL 1AS - First-Year Writing: Stretch English II</span> 3 unit(s)
+                    </label>
+                  </li>
+
             </ul>
+
           </li>
+
           <li>3. Critical Thinking and Writing
+
             <ul>
-              <li><span class="blue-underline">ENGL 2 - Critical Thinking and Writing</span> 3 unit(s)</li>
+
+                <li>
+                    <label>
+                      <input type="checkbox" name="courses" value="ENGL 2">
+                      <span class="blue-underline">ENGL 2 - Critical Thinking and Writing</span> 3 unit(s)
+                    </label>
+                  </li>
+
             </ul>
+
           </li>
+
         </ul>
+
       </li>
+
       <li>
+
         <span class="blue-underline">GE Area C Arts and Letters</span> 9 unit(s)
+
         <ul>
+
           <li>1. Arts
-            <ul>
-              <li><span class="blue-underline">MUSC 10A - Music Appreciation</span> 3 unit(s)</li>
+
+            <ul> 
+                <li>
+                    <label>
+                    <input type="checkbox" name="courses" value="MUSC 10A">
+                    <span class="blue-underline">MUSC 10A - Music Appreciation</span> 3 unit(s)
+                    </label>
+                </li>
+
             </ul>
+
           </li>
+
           <li>2. Humanities
+
             <ul>
-              <li><span class="blue-underline">TA 13 - Great Comedies for Theatre</span> 3 unit(s)</li>
+
+              <li>
+                <label>
+                  <input type="checkbox" name="courses" value="TA 13">
+                  <span class="blue-underline">TA 13 - Great Comedies for Theatre</span> 3 unit(s)
+                </label>
+              </li>
+
             </ul>
+
           </li>
+
           <li>Additional Area C (C1 or C2 course)
+
             <ul>
-              <li><span class="blue-underline">DANC 10 - Dance Appreciation</span> 3 unit(s)</li>
+
+                <li>
+                    <label>
+                      <input type="checkbox" name="courses" value="DANC 10">
+                      <span class="blue-underline">DANC 10 - Dance Appreciation</span> 3 unit(s)
+                    </label>
+                  </li>
+
             </ul>
+
           </li>
+
         </ul>
+
       </li>
+
       <li>
+
         <span class="blue-underline">GE Area E Human Understanding and Development</span> 3 unit(s)
+
         <ul>
+
           <li>Human Understanding &amp; Development
+
             <ul>
-              <li><span class="blue-underline">EDCO 4 - Personal, Academic and Career Exploration</span> 3 unit(s)</li>
+
+                <li>
+                    <label>
+                      <input type="checkbox" name="courses" value="EDCO 4">
+                      <span class="blue-underline">EDCO 4 - Personal, Academic and Career Exploration</span> 3 unit(s)
+                    </label>
+                  </li>
+
             </ul>
+
           </li>
+
         </ul>
+
       </li>
+
       <li>
+
         <span class="blue-underline">GE Area F Ethnic Studies</span> 3 unit(s)
+
         <ul>
+
           <li>F. Ethnic Studies
+
             <ul>
-              <li><span class="blue-underline">CCS 1 - Introduction to Chicana and Chicano Studies</span> 3 unit(s)</li>
+
+              
+<li>
+    <label>
+      <input type="checkbox" name="courses" value="CCS 1">
+      <span class="blue-underline">CCS 1 - Introduction to Chicana and Chicano Studies</span> 3 unit(s)
+    </label>
+  </li>
+
             </ul>
+
           </li>
+
         </ul>
+
       </li>
+
     </ul>
+
   </div>
+
+
 
   <!-- American Institutions -->
-  <div class="card">
+<div class="card">
     <div class="semester-title">American Institutions (6 unit(s))</div>
-    <p>Complete one 6-unit sequence of American Institutions (US123) courses, which also satisfies GE Area D.</p>
-  </div>
+    
+    <ul class="course-list">
+        <li>
+            <span class="blue-underline">US History Sequence</span> 6 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" id="hist15" onclick="exclusiveCheck(this, 'ams10')">
+                        <span class="blue-underline">HIST 15 - Essentials of U.S. History</span> 3 unit(s) (D+US1)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" id="hist170s" onclick="exclusiveCheck(this, 'hist15')">
+                        <span class="blue-underline">HIST 170S - Topics in American History</span> 3 unit(s)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" id="ams10" onclick="exclusiveCheck(this, 'hist15')">
+                        <span class="blue-underline">AMS 10 - Stories that Make America</span> 3 unit(s) (C2+US1)
+                    </label>
+                </li>
+            </ul>
+        </li>
+        
+        <li>
+            <span class="blue-underline">US Constitution and California Government</span> 3 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="POLS 15">
+                        <span class="blue-underline">POLS 15 - Essentials of U.S. & California Government</span> 3 unit(s) (D+US23)
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
-  <!-- African American Studies -->
-  <div class="card">
+<!-- African American Studies -->
+<div class="card">
     <div class="semester-title">African American Studies (6 unit(s))</div>
+    
     <ul class="course-list">
-      <li>AFAM 2A - African Americans and the Development of America’s History and Government 3 unit(s) (D)</li>
-      <li>AFAM 2B - African Americans and the Development of America’s History and Government 3 unit(s) (D+US123)</li>
+        <li>
+            <span class="blue-underline">AFAM Sequence</span> 6 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AFAM 2A">
+                        <span class="blue-underline">AFAM 2A - African Americans and the Development of America's History and Government</span> 3 unit(s) (D)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AFAM 2B">
+                        <span class="blue-underline">AFAM 2B - African Americans and the Development of America's History and Government</span> 3 unit(s) (D+US123)
+                    </label>
+                </li>
+            </ul>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <!-- Asian American Studies -->
-  <div class="card">
+<!-- Asian American Studies -->
+<div class="card">
     <div class="semester-title">Asian American Studies (6 unit(s))</div>
+    
     <ul class="course-list">
-      <li>AAS 33A - Asian Americans in U.S. History I 3 unit(s) (D)</li>
-      <li>AAS 33B - Asian Americans in U.S. History II 3 unit(s) (D+US123)</li>
+        <li>
+            <span class="blue-underline">AAS Sequence</span> 6 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AAS 33A">
+                        <span class="blue-underline">AAS 33A - Asian Americans in U.S. History I</span> 3 unit(s) (D)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AAS 33B">
+                        <span class="blue-underline">AAS 33B - Asian Americans in U.S. History II</span> 3 unit(s) (D+US123)
+                    </label>
+                </li>
+            </ul>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <!-- Chicana & Chicano Studies -->
-  <div class="card">
+<!-- Chicana & Chicano Studies -->
+<div class="card">
     <div class="semester-title">Chicana and Chicano Studies (6 unit(s))</div>
+    
     <ul class="course-list">
-      <li>CCS 10A - Mexican Americans and the Development of U.S. History and Government 3 unit(s) (D)</li>
-      <li>CCS 10B - Mexican Americans and the Development of U.S. History and Government 3 unit(s) (D+US123)</li>
+        <li>
+            <span class="blue-underline">CCS Sequence</span> 6 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="CCS 10A">
+                        <span class="blue-underline">CCS 10A - Mexican Americans and the Development of U.S. History and Government</span> 3 unit(s) (D)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="CCS 10B">
+                        <span class="blue-underline">CCS 10B - Mexican Americans and the Development of U.S. History and Government</span> 3 unit(s) (D+US123)
+                    </label>
+                </li>
+            </ul>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <!-- U.S. History & Government -->
-  <div class="card">
+<!-- U.S. History & Government -->
+<div class="card">
     <div class="semester-title">U.S. History and Government (6 unit(s))</div>
-    <div class="semester-title">Complete One US1: US History Course</div>
+    
     <ul class="course-list">
-      <li>AMS 10 - Stories that Make America 3 unit(s) (C2+US1)</li>
-      <li>HIST 15 - Essentials of U.S. History 3 unit(s) (D+US1)</li>
-      <li>HIST 170S - Topics in American History: American Identities and Institutions 3 unit(s)</li>
+        <li>
+            <span class="blue-underline">US History Course</span> 3 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" id="ams10" onclick="exclusiveCheck(this, 'hist15')">
+                        <span class="blue-underline">AMS 10 - Stories that Make America</span> 3 unit(s) (C2+US1)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" id="hist15" onclick="exclusiveCheck(this, 'ams10')">
+                        <span class="blue-underline">HIST 15 - Essentials of U.S. History</span> 3 unit(s) (D+US1)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="HIST 170S">
+                        <span class="blue-underline">HIST 170S - Topics in American History: American Identities and Institutions</span> 3 unit(s)
+                    </label>
+                </li>
+            </ul>
+        </li>
+        
+        <li>
+            <span class="blue-underline">US Constitution and California Government</span> 3 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="POLS 15">
+                        <span class="blue-underline">POLS 15 - Essentials of U.S. & California Government</span> 3 unit(s) (D+US23)
+                    </label>
+                </li>
+            </ul>
+        </li>
     </ul>
-    <div class="semester-title">Complete One US23: US Constitution and California Government Course</div>
-    <ul class="course-list">
-      <li>POLS 15 - Essentials of U.S. &amp; California Government 3 unit(s) (D+US23)</li>
-    </ul>
-  </div>
+</div>
 
-  <!-- GWAR -->
-  <div class="card">
+<!-- GWAR -->
+<div class="card">
     <div class="semester-title">Graduation Writing Assessment Requirement (GWAR)</div>
+    
     <ul class="course-list">
-      <li>ENGR 100W - Engineering Reports 3 unit(s) (WID+R)</li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="ENGR 100W">
+                <span class="blue-underline">ENGR 100W - Engineering Reports</span> 3 unit(s) (WID+R)
+            </label>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <!-- Major Preparation -->
-  <div class="card">
+<!-- Major Preparation -->
+<div class="card">
     <div class="semester-title">Major Preparation (20 unit(s))</div>
+    
     <ul class="course-list">
-      <li>BUS2 90 - Business Statistics 3 unit(s)</li>
-      <li>ANTH 12 - Introduction to Human Evolution (GE Area B2) 3 unit(s)</li>
-      <li>MATH 71 - Calculus for Business and Aviation 3 unit(s)</li>
+        <li>
+            <span class="blue-underline">Core Requirements</span>
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="BUS2 90">
+                        <span class="blue-underline">BUS2 90 - Business Statistics</span> 3 unit(s)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="ANTH 12">
+                        <span class="blue-underline">ANTH 12 - Introduction to Human Evolution</span> 3 unit(s) (GE Area B2)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="MATH 71">
+                        <span class="blue-underline">MATH 71 - Calculus for Business and Aviation</span> 3 unit(s)
+                    </label>
+                </li>
+            </ul>
+        </li>
+        
+        <li>
+            <span class="blue-underline">Accounting Track</span> 3 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" id="bus120" onclick="exclusiveCheck(this, 'bus120n')">
+                        <span class="blue-underline">BUS1 20 - Financial Accounting</span> 3 unit(s)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" id="bus120n" onclick="exclusiveCheck(this, 'bus120')">
+                        <span class="blue-underline">BUS1 20N - Survey of Accounting</span> 3 unit(s)
+                    </label>
+                </li>
+            </ul>
+        </li>
+        
+        <li>
+            <span class="blue-underline">Physics Requirements</span> 8 unit(s)
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="PHYS 2A">
+                        <span class="blue-underline">PHYS 2A - Fundamentals of Physics</span> 4 unit(s) (B1+B3)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="PHYS 2B">
+                        <span class="blue-underline">PHYS 2B - Fundamentals of Physics</span> 4 unit(s) (B1+B3)
+                    </label>
+                </li>
+            </ul>
+        </li>
     </ul>
-    <div class="semester-title">Accounting (3 unit(s))</div>
-    <ul class="course-list">
-      <li>BUS1 20 - Financial Accounting 3 unit(s)</li>
-      <li>BUS1 20N - Survey of Accounting 3 unit(s)</li>
-    </ul>
-    <div class="semester-title">Physics (8 unit(s))</div>
-    <ul class="course-list">
-      <li>PHYS 2A - Fundamentals of Physics 4 unit(s) (B1+B3)</li>
-      <li>PHYS 2B - Fundamentals of Physics 4 unit(s) (B1+B3)</li>
-    </ul>
-  </div>
+</div>
 
-  <!-- Core Courses -->
-  <div class="card">
+<!-- Core Courses -->
+<div class="card">
     <div class="semester-title">Core Courses (27 unit(s))</div>
+    
     <ul class="course-list">
-      <li>AVIA 78 - Introduction to Aviation Management 3 unit(s)</li>
-      <li>AVIA 128 - Aviation Safety and Security 3 unit(s)</li>
-      <li>AVIA 141 - Human Factors in Aviation 3 unit(s)</li>
-      <li>AVIA 173 - Aviation Law 3 unit(s)</li>
-      <li>AVIA 176 - Airline Operations and Management 3 unit(s)</li>
-      <li>AVIA 190 - Senior Capstone Seminar 3 unit(s)</li>
-      <li>AVIA 198 - Aviation and Human Civilization 3 unit(s)</li>
-      <li>BUS3 186 - Professional and Business Ethics 3 unit(s)</li>
-      <li>ENGR 100W - Engineering Reports 3 unit(s)</li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 78">
+                <span class="blue-underline">AVIA 78 - Introduction to Aviation Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 128">
+                <span class="blue-underline">AVIA 128 - Aviation Safety and Security</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 141">
+                <span class="blue-underline">AVIA 141 - Human Factors in Aviation</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 173">
+                <span class="blue-underline">AVIA 173 - Aviation Law</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 176">
+                <span class="blue-underline">AVIA 176 - Airline Operations and Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 190">
+                <span class="blue-underline">AVIA 190 - Senior Capstone Seminar</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 198">
+                <span class="blue-underline">AVIA 198 - Aviation and Human Civilization</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="BUS3 186">
+                <span class="blue-underline">BUS3 186 - Professional and Business Ethics</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="ENGR 100W">
+                <span class="blue-underline">ENGR 100W - Engineering Reports</span> 3 unit(s) (WID+R)
+            </label>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <!-- Specialized Courses -->
-  <div class="card">
+<!-- Specialized Courses -->
+<div class="card">
     <div class="semester-title">Specialized Courses (43 unit(s))</div>
-  </div>
+</div>
 
-  <div class="card">
+<!-- Flight Operations -->
+<div class="card">
     <div class="semester-title">Flight Operations</div>
     <ul class="course-list">
-      <li>AVIA 1 - Introduction to the Aviation Industry 3 unit(s)</li>
-      <li>AVIA 31 - Aircraft Theory and Design 3 unit(s)</li>
-      <li>AVIA 42 - Aircraft Systems 3 unit(s)</li>
-      <li>AVIA 43 - Propulsion Theory 3 unit(s)</li>
-      <li>AVIA 68 - Avionics and Airborne Communication 3 unit(s)</li>
-      <li>AVIA 73 - Air Traffic Control 3 unit(s)</li>
-      <li>AVIA 91 - Aircraft Turbine Engines 3 unit(s)</li>
-      <li>AVIA 110 - Aviation Weather 3 unit(s)</li>
-      <li>AVIA 178 - Airport Planning and Management 3 unit(s)</li>
-      <li>AVIA 193 - Aerodynamics 3 unit(s)</li>
-      <li>AVIA 194 - Advanced Aircraft Systems 3 unit(s)</li>
-      <li>Major Electives 7 unit(s)</li>
-      <ul style="list-style-type: square; margin-left: 20px;">
-        <li>AVIA 114 - Certified Flight Instructor 3 unit(s)</li>
-        <li>AVIA 112 - Commercial Pilot Ground 3 unit(s)</li>
-        <li>AVIA 177 - General Aviation Operations and Management 3 unit(s)</li>
-      </ul>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 1">
+                <span class="blue-underline">AVIA 1 - Introduction to the Aviation Industry</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 31">
+                <span class="blue-underline">AVIA 31 - Aircraft Theory and Design</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 42">
+                <span class="blue-underline">AVIA 42 - Aircraft Systems</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 43">
+                <span class="blue-underline">AVIA 43 - Propulsion Theory</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 68">
+                <span class="blue-underline">AVIA 68 - Avionics and Airborne Communication</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 73">
+                <span class="blue-underline">AVIA 73 - Air Traffic Control</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 91">
+                <span class="blue-underline">AVIA 91 - Aircraft Turbine Engines</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 110">
+                <span class="blue-underline">AVIA 110 - Aviation Weather</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 178">
+                <span class="blue-underline">AVIA 178 - Airport Planning and Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 193">
+                <span class="blue-underline">AVIA 193 - Aerodynamics</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 194">
+                <span class="blue-underline">AVIA 194 - Advanced Aircraft Systems</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <span class="blue-underline">Major Electives</span> 7 unit(s)
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AVIA 114">
+                        <span class="blue-underline">AVIA 114 - Certified Flight Instructor</span> 3 unit(s)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AVIA 112">
+                        <span class="blue-underline">AVIA 112 - Commercial Pilot Ground</span> 3 unit(s)
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="courses" value="AVIA 177">
+                        <span class="blue-underline">AVIA 177 - General Aviation Operations and Management</span> 3 unit(s)
+                    </label>
+                </li>
+            </ul>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <div class="card">
+<!-- Professional Flight -->
+<div class="card">
     <div class="semester-title">Professional Flight</div>
     <ul class="course-list">
-      <li>AVIA 2 - Private Pilot Ground 3 unit(s)</li>
-      <li>AVIA 3 - Introduction to Private Pilot Part 141 Flight 2 unit(s)</li>
-      <li>AVIA 62 - Instrument Pilot Ground 3 unit(s)</li>
-      <li>AVIA 63 - Instrument Rating Part 141 Flight 2 unit(s)</li>
-      <li>AVIA 112 - Commercial Pilot Ground 3 unit(s)</li>
-      <li>AVIA 113 - Commercial Professional Pilot Part 141 Flight 2 unit(s)</li>
-      <li>AVIA 193 - Aerodynamics 3 unit(s)</li>
-      <li>Major Elective 1 unit(s)</li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 2">
+                <span class="blue-underline">AVIA 2 - Private Pilot Ground</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 3">
+                <span class="blue-underline">AVIA 3 - Introduction to Private Pilot Part 141 Flight</span> 2 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 62">
+                <span class="blue-underline">AVIA 62 - Instrument Pilot Ground</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 63">
+                <span class="blue-underline">AVIA 63 - Instrument Rating Part 141 Flight</span> 2 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 112">
+                <span class="blue-underline">AVIA 112 - Commercial Pilot Ground</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 113">
+                <span class="blue-underline">AVIA 113 - Commercial Professional Pilot Part 141 Flight</span> 2 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 193">
+                <span class="blue-underline">AVIA 193 - Aerodynamics</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="major-elective">
+                <span class="blue-underline">Major Elective</span> 1 unit(s)
+            </label>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <div class="card">
+<!-- Aviation Management -->
+<div class="card">
     <div class="semester-title">Aviation Management</div>
     <ul class="course-list">
-      <li>AVIA 1 - Introduction to the Aviation Industry 3 unit(s)</li>
-      <li>AVIA 31 - Aircraft Theory and Design 3 unit(s)</li>
-      <li>AVIA 42 - Aircraft Systems 3 unit(s)</li>
-      <li>AVIA 43 - Propulsion Theory 3 unit(s)</li>
-      <li>AVIA 73 - Air Traffic Control 3 unit(s)</li>
-      <li>AVIA 177 - General Aviation Operations and Management 3 unit(s)</li>
-      <li>AVIA 178 - Airport Planning and Management 3 unit(s)</li>
-      <li>AVIA 179 - Advanced Airport Planning and Management 3 unit(s)</li>
-      <li>BUS1 170 - Fundamentals of Finance 3 unit(s)</li>
-      <li>BUS5 146 - Fundamentals of Project Management 3 unit(s)</li>
-      <li>ECON 1B - Principles of Economics: Microeconomics 3 unit(s)</li>
-      <li>Major Elective 4 unit(s)</li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 1">
+                <span class="blue-underline">AVIA 1 - Introduction to the Aviation Industry</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 31">
+                <span class="blue-underline">AVIA 31 - Aircraft Theory and Design</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 42">
+                <span class="blue-underline">AVIA 42 - Aircraft Systems</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 43">
+                <span class="blue-underline">AVIA 43 - Propulsion Theory</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 73">
+                <span class="blue-underline">AVIA 73 - Air Traffic Control</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 177">
+                <span class="blue-underline">AVIA 177 - General Aviation Operations and Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 178">
+                <span class="blue-underline">AVIA 178 - Airport Planning and Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="AVIA 179">
+                <span class="blue-underline">AVIA 179 - Advanced Airport Planning and Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="BUS1 170">
+                <span class="blue-underline">BUS1 170 - Fundamentals of Finance</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="BUS5 146">
+                <span class="blue-underline">BUS5 146 - Fundamentals of Project Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="ECON 1B">
+                <span class="blue-underline">ECON 1B - Principles of Economics: Microeconomics</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="major-elective">
+                <span class="blue-underline">Major Elective</span> 4 unit(s)
+            </label>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <div class="card">
+<!-- Minor in Business -->
+<div class="card">
     <div class="semester-title">Requirements for Minor in Business (6 unit(s))</div>
     <ul class="course-list">
-      <li>BUS3 160 - Fundamentals of Management and Organizational Behavior 3 unit(s)</li>
-      <li>Business Elective (3 unit(s))</li>
+        <li>
+            <label>
+                <input type="checkbox" name="courses" value="BUS3 160">
+                <span class="blue-underline">BUS3 160 - Fundamentals of Management and Organizational Behavior</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="business-elective">
+                <span class="blue-underline">Business Elective</span> (3 unit(s))
+            </label>
+        </li>
     </ul>
-  </div>
+</div>
 
-  <div class="card">
+<!-- Additional Requirements -->
+<div class="card">
     <div class="semester-title">Complete one course:</div>
     <ul class="course-list">
-      <li>BUS3 150 - Fundamentals of Human Resource Management 3 unit(s)</li>
-      <li>BUS5 141 - Procurement and Supply Management 3 unit(s)</li>
-      <li>BUS5 145 - Operations &amp; Supply Chain Strategy 3 unit(s)</li>
-      <li>BUS5 167 - Managing Environmental Issues 3 unit(s)</li>
-      <li>BUS5 181 - Introduction to Entrepreneurship 3 unit(s)</li>
+        <li>
+            <label>
+                <input type="checkbox" id="hrm" onclick="exclusiveCheck(this)" name="complete-one-course">
+                <span class="blue-underline">BUS3 150 - Fundamentals of Human Resource Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" id="psm" onclick="exclusiveCheck(this)" name="complete-one-course">
+                <span class="blue-underline">BUS5 141 - Procurement and Supply Management</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" id="ops" onclick="exclusiveCheck(this)" name="complete-one-course">
+                <span class="blue-underline">BUS5 145 - Operations & Supply Chain Strategy</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" id="env" onclick="exclusiveCheck(this)" name="complete-one-course">
+                <span class="blue-underline">BUS5 167 - Managing Environmental Issues</span> 3 unit(s)
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" id="ent" onclick="exclusiveCheck(this)" name="complete-one-course">
+                <span class="blue-underline">BUS5 181 - Introduction to Entrepreneurship</span> 3 unit(s)
+            </label>
+        </li>
     </ul>
-  </div>
-
-</body>
-</html>
+</div>
+      <script>
+        function exclusiveCheck(clicked, otherId) {
+    const other = document.getElementById(otherId);
+    if (clicked.checked) {
+        other.checked = false;
+    }
+}
+      </script>
